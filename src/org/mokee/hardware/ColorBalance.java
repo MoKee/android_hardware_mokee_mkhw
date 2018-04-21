@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
  * Copyright (C) 2016 The MoKee Open Source Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,6 +18,8 @@
 
 package org.mokee.hardware;
 
+import vendor.mokee.livedisplay.V1_0.Feature;
+
 /**
  * Color balance support
  *
@@ -28,7 +31,7 @@ package org.mokee.hardware;
 public class ColorBalance {
 
     private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.hasNativeFeature(LiveDisplayVendorImpl.COLOR_BALANCE);
+            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.COLOR_BALANCE);
 
     /**
      * Whether device supports color balance control
@@ -47,7 +50,7 @@ public class ColorBalance {
      */
     public static int getValue() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getColorBalance();
+            return LiveDisplayVendorImpl.getInstance().getColorBalance();
         }
         return 0;
     }
@@ -61,7 +64,7 @@ public class ColorBalance {
      */
     public static boolean setValue(int value) {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_setColorBalance(value);
+            return LiveDisplayVendorImpl.getInstance().setColorBalance(value);
         }
         return false;
     }
@@ -72,7 +75,7 @@ public class ColorBalance {
      */
     public static int getMinValue() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getColorBalanceRange().getLower();
+            return LiveDisplayVendorImpl.getInstance().getColorBalanceRange().getLower();
         }
         return 0;
     }
@@ -83,7 +86,7 @@ public class ColorBalance {
      */
     public static int getMaxValue() {
         if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.native_getColorBalanceRange().getUpper();
+            return LiveDisplayVendorImpl.getInstance().getColorBalanceRange().getUpper();
         }
         return 0;
     }
