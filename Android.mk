@@ -45,10 +45,8 @@ LOCAL_SRC_FILES += $(default_classes) $(unique_specific_classes)
 
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE := org.mokee.hardware
-LOCAL_JAVA_LIBRARIES := \
-    org.mokee.platform.internal \
-    services \
-    vendor.mokee.livedisplay-V1.0-java
+LOCAL_JAVA_LIBRARIES := org.mokee.platform.internal services
+LOCAL_STATIC_JAVA_LIBRARIES := vendor.mokee.livedisplay-V1.0-java-static
 
 include $(BUILD_JAVA_LIBRARY)
 
