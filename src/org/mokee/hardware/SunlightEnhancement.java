@@ -65,7 +65,7 @@ public class SunlightEnhancement {
             return true;
         }
 
-        return FileUtils.isFileWritable(FACEMELT_PATH);
+        return FileUtils.isFileReadable(FACEMELT_PATH) && FileUtils.isFileWritable(FACEMELT_PATH);
     }
 
     /**

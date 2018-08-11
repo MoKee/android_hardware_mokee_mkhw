@@ -36,7 +36,7 @@ public class AutoContrast {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        return FileUtils.isFileWritable(FILE_ACO);
+        return FileUtils.isFileReadable(FILE_ACO) && FileUtils.isFileWritable(FILE_ACO);
     }
 
     /**
