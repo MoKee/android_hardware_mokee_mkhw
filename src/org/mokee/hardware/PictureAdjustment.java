@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2016 The MoKee Open Source Project
  * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +16,12 @@
  * limitations under the License.
  */
 
-package org.lineageos.hardware;
+package org.mokee.hardware;
 
 import android.util.Range;
 
-import lineageos.hardware.HSIC;
-import vendor.lineage.livedisplay.V1_0.Feature;
+import mokee.hardware.HSIC;
+import vendor.mokee.livedisplay.V1_0.Feature;
 
 /**
  * Picture adjustment support

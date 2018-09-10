@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.hardware;
+package org.mokee.hardware;
 
 import android.app.ActivityThread;
 import android.os.IBinder;
@@ -27,7 +27,7 @@ import com.android.server.LocalServices;
 import com.android.server.display.DisplayTransformManager;
 import static com.android.server.display.DisplayTransformManager.LEVEL_COLOR_MATRIX_GRAYSCALE;
 
-import org.lineageos.internal.util.FileUtils;
+import org.mokee.internal.util.FileUtils;
 
 /**
  * Reader mode

@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2015 The MoKee Open Source Project
  * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.hardware;
+package org.mokee.hardware;
 
 import android.os.IHwBinder.DeathRecipient;
 import android.os.RemoteException;
@@ -23,9 +24,9 @@ import android.util.Log;
 import android.util.Range;
 import com.android.internal.annotations.GuardedBy;
 
-import lineageos.hardware.DisplayMode;
-import lineageos.hardware.HSIC;
-import vendor.lineage.livedisplay.V1_0.IColor;
+import mokee.hardware.DisplayMode;
+import mokee.hardware.HSIC;
+import vendor.mokee.livedisplay.V1_0.IColor;
 
 /**
  * This class loads an implementation of the LiveDisplay native interface.

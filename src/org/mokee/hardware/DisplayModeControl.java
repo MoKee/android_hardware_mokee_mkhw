@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
+ * Copyright (C) 2015 The MoKee Open Source Project
  * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,12 +16,12 @@
  * limitations under the License.
  */
 
-package org.lineageos.hardware;
+package org.mokee.hardware;
 
 import android.util.Log;
 
-import lineageos.hardware.DisplayMode;
-import vendor.lineage.livedisplay.V1_0.Feature;
+import mokee.hardware.DisplayMode;
+import vendor.mokee.livedisplay.V1_0.Feature;
 
 /*
  * Display Modes API

@@ -1,6 +1,4 @@
 /*
- * Copyright (C) 2015 The CyanogenMod Project
- * Copyright (C) 2015 Franco Rapetti <frapeti@gmail.com>
  * Copyright (C) 2013 Xiao-Long Chen <chenxiaolong@cxl.epac.to>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,33 +14,33 @@
  * limitations under the License.
  */
 
-package org.lineageos.hardware;
+package org.mokee.hardware;
 
 /**
- * Touchscreen Hovering
+ * Glove mode / high touch sensitivity
  */
-public class TouchscreenHovering {
+public class HighTouchSensitivity {
 
     /**
-     * Whether device supports touchscreen hovering.
+     * Whether device supports high touch sensitivity.
      *
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() { return false; }
 
     /**
-     * This method return the current activation status of touchscreen hovering
+     * This method return the current activation status of high touch sensitivity
      *
-     * @return boolean Must be false if touchscreen hovering is not supported or not activated,
+     * @return boolean Must be false if high touch sensitivity is not supported or not activated,
      * or the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() { return false; }
 
     /**
-     * This method allows to setup touchscreen hovering status.
+     * This method allows to setup high touch sensitivity status.
      *
-     * @param status The new touchscreen hovering status
-     * @return boolean Must be false if touchscreen hovering is not supported or the operation
+     * @param status The new high touch sensitivity status
+     * @return boolean Must be false if high touch sensitivity is not supported or the operation
      * failed; true in any other case.
      */
     public static boolean setEnabled(boolean status) { return false; }
