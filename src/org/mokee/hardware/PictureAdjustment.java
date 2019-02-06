@@ -21,7 +21,6 @@ package org.mokee.hardware;
 import android.util.Range;
 
 import mokee.hardware.HSIC;
-import vendor.mokee.livedisplay.V1_0.Feature;
 
 /**
  * Picture adjustment support
@@ -31,16 +30,13 @@ import vendor.mokee.livedisplay.V1_0.Feature;
  */
 public class PictureAdjustment {
 
-    private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.PICTURE_ADJUSTMENT);
-
     /**
      * Whether device supports picture adjustment
      *
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        return sHasNativeSupport;
+        return false;
     }
 
     /**
@@ -50,9 +46,6 @@ public class PictureAdjustment {
      * @return the HSIC object or null if not supported
      */
     public static HSIC getHSIC() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getPictureAdjustment();
-        }
         return null;
     }
 
@@ -65,9 +58,6 @@ public class PictureAdjustment {
      * @return the HSIC object or null if not supported
      */
     public static HSIC getDefaultHSIC() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getDefaultPictureAdjustment();
-        }
         return null;
     }
 
@@ -79,9 +69,6 @@ public class PictureAdjustment {
      * failed; true in any other case.
      */
     public static boolean setHSIC(final HSIC hsic) {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().setPictureAdjustment(hsic);
-        }
         return false;
     }
 
@@ -90,9 +77,6 @@ public class PictureAdjustment {
      * @return range of floats
      */
     public static Range<Float> getHueRange() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getHueRange();
-        }
         return new Range(0.0f, 0.0f);
     }
 
@@ -101,9 +85,6 @@ public class PictureAdjustment {
      * @return range of floats
      */
     public static Range<Float> getSaturationRange() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getSaturationRange();
-        }
         return new Range(0.0f, 0.0f);
     }
 
@@ -112,9 +93,6 @@ public class PictureAdjustment {
      * @return range of floats
      */
     public static Range<Float> getIntensityRange() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getIntensityRange();
-        }
         return new Range(0.0f, 0.0f);
     }
 
@@ -123,9 +101,6 @@ public class PictureAdjustment {
      * @return range of floats
      */
     public static Range<Float> getContrastRange() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getContrastRange();
-        }
         return new Range(0.0f, 0.0f);
     }
 
@@ -137,9 +112,6 @@ public class PictureAdjustment {
      * @return range of floats
      */
     public static Range<Float> getSaturationThresholdRange() {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().getSaturationThresholdRange();
-        }
         return new Range(0.0f, 0.0f);
     }
 }

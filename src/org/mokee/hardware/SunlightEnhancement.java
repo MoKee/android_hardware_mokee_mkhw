@@ -21,7 +21,6 @@ package org.mokee.hardware;
 import android.util.Log;
 
 import org.mokee.internal.util.FileUtils;
-import vendor.mokee.livedisplay.V1_0.Feature;
 
 /**
  * Facemelt mode!
@@ -35,9 +34,6 @@ public class SunlightEnhancement {
 
     private static final String FILE_HBM = "/sys/class/graphics/fb0/hbm";
     private static final String FILE_SRE = "/sys/class/graphics/fb0/sre";
-
-    private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.OUTDOOR_MODE);
 
     private static String getFacemeltPath() {
         if (FileUtils.fileExists(FILE_HBM)) {
@@ -61,10 +57,6 @@ public class SunlightEnhancement {
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        if (sHasNativeSupport) {
-            return true;
-        }
-
         return FileUtils.isFileReadable(FACEMELT_PATH) && FileUtils.isFileWritable(FACEMELT_PATH);
     }
 
@@ -75,15 +67,7 @@ public class SunlightEnhancement {
      * or the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        try {
-            if (sHasNativeSupport) {
-                return LiveDisplayVendorImpl.getInstance().isOutdoorModeEnabled();
-            }
-            return Integer.parseInt(FileUtils.readOneLine(FACEMELT_PATH)) > 0;
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage(), e);
-        }
-        return false;
+        return Integer.parseInt(FileUtils.readOneLine(FACEMELT_PATH)) > 0;
     }
 
     /**
@@ -94,10 +78,6 @@ public class SunlightEnhancement {
      * failed; true in any other case.
      */
     public static boolean setEnabled(boolean status) {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().setOutdoorModeEnabled(status);
-        }
-
         return FileUtils.writeLine(FACEMELT_PATH, status ? FACEMELT_MODE : "0");
     }
 

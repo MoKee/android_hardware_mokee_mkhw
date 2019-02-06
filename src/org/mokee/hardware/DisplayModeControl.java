@@ -18,12 +18,9 @@
 
 package org.mokee.hardware;
 
-import android.util.Log;
-
 import mokee.hardware.DisplayMode;
-import vendor.mokee.livedisplay.V1_0.Feature;
 
-/*
+/**
  * Display Modes API
  *
  * A device may implement a list of preset display modes for different
@@ -37,18 +34,15 @@ import vendor.mokee.livedisplay.V1_0.Feature;
 
 public class DisplayModeControl {
 
-    private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.DISPLAY_MODES);
-
-    /*
+    /**
      * All HAF classes should export this boolean.
      * Real implementations must, of course, return true
      */
     public static boolean isSupported() {
-        return sHasNativeSupport;
+        return false;
     }
 
-    /*
+    /**
      * Get the list of available modes. A mode has an integer
      * identifier and a string name.
      *
@@ -56,44 +50,32 @@ public class DisplayModeControl {
      * map the name to a human-readable format or perform translation.
      */
     public static DisplayMode[] getAvailableModes() {
-        if (!sHasNativeSupport) {
-            return new DisplayMode[0];
-        }
-        return LiveDisplayVendorImpl.getInstance().getDisplayModes();
+        return new DisplayMode[0];
     }
 
-    /*
+    /**
      * Get the name of the currently selected mode. This can return
      * null if no mode is selected.
      */
     public static DisplayMode getCurrentMode() {
-        if (!sHasNativeSupport) {
-            return null;
-        }
-        return LiveDisplayVendorImpl.getInstance().getCurrentDisplayMode();
+        return null;
     }
 
-    /*
+    /**
      * Selects a mode from the list of available modes by it's
      * string identifier. Returns true on success, false for
      * failure. It is up to the implementation to determine
      * if this mode is valid.
      */
     public static boolean setMode(DisplayMode mode, boolean makeDefault) {
-        if (!sHasNativeSupport) {
-            return false;
-        }
-        return LiveDisplayVendorImpl.getInstance().setDisplayMode(mode, makeDefault);
+        return false;
     }
 
-    /*
+    /**
      * Gets the preferred default mode for this device by it's
      * string identifier. Can return null if there is no default.
      */
     public static DisplayMode getDefaultMode() {
-        if (!sHasNativeSupport) {
-            return null;
-        }
-        return LiveDisplayVendorImpl.getInstance().getDefaultDisplayMode();
+        return null;
     }
 }

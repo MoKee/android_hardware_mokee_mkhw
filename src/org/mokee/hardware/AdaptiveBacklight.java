@@ -21,7 +21,6 @@ package org.mokee.hardware;
 import android.util.Log;
 
 import org.mokee.internal.util.FileUtils;
-import vendor.mokee.livedisplay.V1_0.Feature;
 
 /**
  * Adaptive backlight support (this refers to technologies like NVIDIA SmartDimmer,
@@ -33,19 +32,12 @@ public class AdaptiveBacklight {
 
     private static final String FILE_CABC = "/sys/class/graphics/fb0/cabc";
 
-    private static final boolean sHasNativeSupport =
-            LiveDisplayVendorImpl.getInstance().hasNativeFeature(Feature.ADAPTIVE_BACKLIGHT);
-
     /**
      * Whether device supports an adaptive backlight technology.
      *
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() {
-        if (sHasNativeSupport) {
-            return true;
-        }
-
         return FileUtils.isFileReadable(FILE_CABC) && FileUtils.isFileWritable(FILE_CABC);
     }
 
@@ -56,15 +48,7 @@ public class AdaptiveBacklight {
      * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() {
-        try {
-            if (sHasNativeSupport) {
-                return LiveDisplayVendorImpl.getInstance().isAdaptiveBacklightEnabled();
-            }
-            return Integer.parseInt(FileUtils.readOneLine(FILE_CABC)) > 0;
-        } catch (Exception e) {
-            Log.e(TAG, e.getMessage(), e);
-        }
-        return false;
+        return Integer.parseInt(FileUtils.readOneLine(FILE_CABC)) > 0;
     }
 
     /**
@@ -75,9 +59,6 @@ public class AdaptiveBacklight {
      * failed; true in any other case.
      */
     public static boolean setEnabled(boolean status) {
-        if (sHasNativeSupport) {
-            return LiveDisplayVendorImpl.getInstance().setAdaptiveBacklightEnabled(status);
-        }
         return FileUtils.writeLine(FILE_CABC, status ? "1" : "0");
     }
 }

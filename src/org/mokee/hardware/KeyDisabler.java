@@ -17,7 +17,7 @@
 
 package org.mokee.hardware;
 
-/*
+/**
  * Disable capacitive keys
  *
  * This is intended for use on devices in which the capacitive keys
@@ -28,27 +28,25 @@ package org.mokee.hardware;
 
 public class KeyDisabler {
 
-    /*
+    /**
      * All HAF classes should export this boolean.
      * Real implementations must, of course, return true
      */
+    public static boolean isSupported() {
+        return false;
+    }
 
-    public static boolean isSupported() { return false; }
-
-    /*
+    /**
      * Are the keys currently blocked?
      */
-
     public static boolean isActive() {
         return false;
     }
 
-    /*
+    /**
      * Disable capacitive keys
      */
-
     public static boolean setActive(boolean state) {
         throw new UnsupportedOperationException();
     }
-
 }
